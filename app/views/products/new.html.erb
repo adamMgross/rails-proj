@@ -1,0 +1,30 @@
+<h1>New Product</h1>
+<%= form_for :product, url: products_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+ 
+  <p>
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </p>
+  
+  <p>
+  <%= f.fields_for :pictures do |p|%>
+      <%= p.label :image, "Upload image:" %>
+      <%= p.file_field :image, multiple: true, name: "painting[image]" %>
+  <% end %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Product List', products_path %><br>
+<%= link_to 'Main Page', "/" %>

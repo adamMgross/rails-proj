@@ -1,0 +1,21 @@
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+<%= image_tag url_for(:controller => "pictures", :action => "show",:sel_id => @product.pictures) %>
+</p>
+
+<%= link_to 'Back', products_path %>
+
