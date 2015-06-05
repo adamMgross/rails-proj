@@ -1,7 +1,5 @@
 <h1>Editing product</h1>
- 
-<%= form_for :product, url: product_path(@product), method: :patch do |f| %>
- 
+ <%= form_for :product, url: product_path(@product), method: :patch do |f| %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
