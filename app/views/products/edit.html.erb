@@ -15,9 +15,34 @@
   <p>
     <%= f.label :price %><br>
     <%= f.text_area :price %>
-
+  </p>  
+  
   <p>
-    <%= f.submit %>
+    <%= image_tag url_for(:controller => "pictures", :action => "show",:sel_id => @product.pictures.all) %>
+  </p>
+  
+  <h2>Upload Images</h2>
+    <body>
+        <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="js/vendor/jquery.ui.widget.js"></script>
+        <script src="js/jquery.iframe-transport.js"></script>
+        <script src="js/jquery.fileupload.js"></script>
+      <script>
+        $(function () {
+          $('#fileupload').fileupload({
+                  dataType: 'json',
+                  done: function (e, data) {
+                        $.each(data.result.files, function (index, file) {
+                        $('<p/>').text(file.name).appendTo(document.body);});
+                  }
+              });
+        });
+      </script>
+    </body> 
+   
+  <p>
+  <br><%= f.submit %>
   </p>
      
 <% end %>

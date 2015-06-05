@@ -38,8 +38,7 @@ class ProductsController < ApplicationController
 
   def destroy
       @product = Product.find(params[:id])
-      @product.pictures.destroy
-      @product.destroy
+      @product.delete
       
       redirect_to products_path
   end
